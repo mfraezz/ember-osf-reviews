@@ -301,3 +301,21 @@ test('fileDownloadURL computed property', function (assert) {
         assert.strictEqual(ctrl.get('fileDownloadURL'), `${origin}/6gtu/download`);
     });
 });
+
+test('leavePage action', function (assert) {
+    const ctrl = this.subject();
+
+    ctrl.send('leavePage');
+    assert.ok(!ctrl.get('showWarning'));
+    assert.ok(!ctrl.get('userHasEnteredReview'));
+
+    const stubTransition = { retry() {} };
+    const stub = this.stub(stubTransition, 'retry');
+    ctrl.set('previousTransition', stubTransition);
+    ctrl.set('userHasEnteredReview', true);
+    ctrl.set('showWarning', true);
+    ctrl.send('leavePage');
+    assert.ok(!ctrl.get('showWarning'));
+    assert.ok(!ctrl.get('userHasEnteredReview'));
+    assert.ok(stub.calledOnce);
+});

@@ -298,3 +298,15 @@ test('commentLengthErrorMessage computed property', function(assert) {
     component.set('reviewerComment', 'test comment for error message'.repeat(2000));
     assert.strictEqual(component.get('commentLengthErrorMessage'), 'Comment is 5535 character(s) too long (maximum is 65535).');
 });
+
+test('userActivity computed property', function(assert) {
+    const component = this.subject();
+
+    component.set('commentEdited', true);
+    component.set('decisionChanged', true);
+    assert.ok(component.get('userActivity'));
+    component.set('decisionChanged', false);
+    assert.ok(component.get('userActivity'));
+    component.set('commentEdited', false);
+    assert.ok(!component.get('userActivity'));
+});
