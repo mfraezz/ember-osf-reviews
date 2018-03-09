@@ -66,7 +66,7 @@ export default Controller.extend({
         return [
             origin,
             this.get('theme.id') !== 'osf' ? `preprints/${this.get('theme.id')}` : null,
-            this.get('model.id'),
+            this.get('model.preprintId'),
             'download',
         ].filter(part => !!part).join('/');
     }),

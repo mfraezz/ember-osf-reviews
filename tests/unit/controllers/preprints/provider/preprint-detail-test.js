@@ -304,9 +304,11 @@ test('fileDownloadURL computed property - non-branded provider', function (asser
         });
 
         ctrl.setProperties({ model });
-        ctrl.set('model.id', '6gtu');
+        ctrl.set('model.preprintId', '6gtu');
 
-        assert.strictEqual(ctrl.get('fileDownloadURL'), 'http://localhost:4201/6gtu/download');
+        const { location: { port } } = window;
+
+        assert.strictEqual(ctrl.get('fileDownloadURL'), `http://localhost:${port}/6gtu/download`);
     });
 });
 
@@ -334,7 +336,7 @@ test('fileDownloadURL computed property - branded provider', function(assert) {
         });
 
         ctrl.setProperties({ model });
-        ctrl.set('model.id', '6gtu');
+        ctrl.set('model.preprintId', '6gtu');
 
         const { location: { origin } } = window;
 
