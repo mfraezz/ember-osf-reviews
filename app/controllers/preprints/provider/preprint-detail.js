@@ -126,7 +126,7 @@ export default Controller.extend({
         },
         submitDecision(trigger, comment, filter) {
             this.toggleProperty('savingAction');
-
+            this.set('userHasEnteredReview', false);
             const action = this.store.createRecord('review-action', {
                 actionTrigger: trigger,
                 target: this.get('preprint'),
