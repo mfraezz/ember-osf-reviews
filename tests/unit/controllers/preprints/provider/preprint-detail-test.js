@@ -271,10 +271,12 @@ test('submitDecision action', function (assert) {
         const stub = this.stub(ctrl, '_saveAction');
 
         ctrl.send('submitDecision', 'accept', 'yes', 'accepted');
+        assert.strictEqual(ctrl.get('userHasEnteredReview'), false);
         assert.strictEqual(ctrl.get('savingAction'), !initialValue);
         assert.ok(stub.calledWithExactly(action, 'accepted'), 'correct arguments passed to _saveAction');
 
         ctrl.send('submitDecision', 'reject', 'no', 'rejected');
+        assert.strictEqual(ctrl.get('userHasEnteredReview'), false);
         assert.strictEqual(ctrl.get('savingAction'), initialValue);
         assert.ok(stub.calledWithExactly(action, 'rejected'), 'correct arguments passed to _saveAction');
     });
