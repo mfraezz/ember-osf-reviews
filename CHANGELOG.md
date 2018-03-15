@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## Changed
+- ember-cli-moment-shim version to `^3.5.3` due to security issues found in `moment` versions before `2.19.3`
 
 ## [0.4.1] - 2018-03-06
 ## Fixed
@@ -17,9 +19,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Tests for provider setup controller
 
 ## Changed
-- Update language 
+- Update language
   - Add `Submitted by` along with the `accepted by/rejected by` for the accepted/rejected records in the moderation list
-  - Capitalize first letter (e.g `submitted by` to `Submitted by`) 
+  - Capitalize first letter (e.g `submitted by` to `Submitted by`)
 - Upgraded ember-cli to 2.16.2
 
 ## [0.3.1] - 2018-03-01
@@ -62,7 +64,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use COS ember-base image and multi-stage build
   - Notify DevOps prior to merging into master to update Jenkins
 - Show moderator name (instead of creator) in the accepted/rejected records in the moderation list
-- Update style/layout for Reviews to be more mobile friendly 
+- Update style/layout for Reviews to be more mobile friendly
 
 ### Removed
 - Remove name link from action logs in the dashboard view
