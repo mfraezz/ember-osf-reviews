@@ -14,10 +14,12 @@
     "start": "ember server",
     "check-style": "eslint .",
     "test": "yarn run check-style && ember test",
-    "test:cover": "COVERAGE=true yarn test"
+    "test:cover": "COVERAGE=true yarn test",
+    "use-ember-osf-develop": "yarn upgrade @centerforopenscience/ember-osf@https://github.com/CenterForOpenScience/ember-osf.git#develop#$(date -u +%FT%TZ)",
+    "use-ember-osf-next-interfaces": "yarn upgrade @centerforopenscience/ember-osf@https://github.com/CenterForOpenScience/ember-osf.git#release/next-interfaces#$(date -u +%FT%TZ)"
   },
   "devDependencies": {
-    "@centerforopenscience/ember-osf": "https://github.com/CenterForOpenScience/ember-osf#feature/reviews#2017-12-21",
+    "@centerforopenscience/ember-osf": "https://github.com/CenterForOpenScience/ember-osf.git#release/next-interfaces#2018-03-13T16:24:10Z",
     "@centerforopenscience/eslint-config": "^2.0.0",
     "@cos-forks/ember-content-placeholders": "https://github.com/cos-forks/ember-content-placeholders#c85cdbeb4b9c206c3f76a92422db76815b2c95bc",
     "broccoli-asset-rev": "^2.4.5",
