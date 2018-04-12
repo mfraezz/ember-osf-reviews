@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - reviews to use ember-osf version of `queryHasMany`
 - `osf-style` to use the latest version with navbar changes
 
+## Removed
+- Unneeded node calls to reflect divorce changes
+
 ## [0.4.1] - 2018-03-06
 ## Fixed
 - Updating of decisions immediately after accepting or rejecting
