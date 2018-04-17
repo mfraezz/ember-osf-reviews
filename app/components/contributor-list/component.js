@@ -19,7 +19,7 @@ export default Component.extend({
     },
 
     fetchData: task(function* () {
-        const submission = this.get('submission.content');
+        const submission = this.get('submission');
         const query = {
             'page[size]': 100,
             page: 1,

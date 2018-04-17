@@ -30,9 +30,7 @@ moduleForComponent('contributor-list', 'Integration | Component | contributor-li
         });
 
         const submission = EmberObject.create({
-            content: {
-                queryHasMany: contributorList,
-            },
+            queryHasMany: contributorList,
         });
 
         this.set('preprint', submission);
