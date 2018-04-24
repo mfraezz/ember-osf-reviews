@@ -54,9 +54,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@centerforopenscience/ember-osf@https://github.com/CenterForOpenScience/ember-osf.git#release/next-interfaces#2018-04-19T17:45:44Z":
-  version "0.15.0"
-  resolved "https://github.com/CenterForOpenScience/ember-osf.git#8355211a2d05509c28f16e19840953e78b715823"
+"@centerforopenscience/ember-osf@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@centerforopenscience/ember-osf/-/ember-osf-0.16.0.tgz#197951a4f567fe8b21d470eeb884012595f02abd"
   dependencies:
     broccoli-funnel "1.2.0"
     broccoli-merge-trees "2.0.0"
@@ -104,9 +104,9 @@
     eslint-plugin-eslint-comments "^1.0.0"
     eslint-plugin-import "^2.7.0"
 
-"@centerforopenscience/osf-style@https://github.com/CenterForOpenScience/osf-style#b09451d759c8544d2fab4bd7dbd5ca8b6dc242b8":
-  version "1.6.0"
-  resolved "https://github.com/CenterForOpenScience/osf-style#b09451d759c8544d2fab4bd7dbd5ca8b6dc242b8"
+"@centerforopenscience/osf-style@1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@centerforopenscience/osf-style/-/osf-style-1.7.0.tgz#0ae3c0eaaca07fcf8bd667a7b3d7aeeb3244564d"
 
 "@cos-forks/ember-content-placeholders@https://github.com/cos-forks/ember-content-placeholders#c85cdbeb4b9c206c3f76a92422db76815b2c95bc":
   version "0.5.0"
