@@ -1,6 +1,9 @@
 export default {
     global: {
         cancel: 'Cancel',
+        remove: 'Remove',
+        save: 'Save',
+        add: 'Add',
         abstract: 'Abstract',
         doi: 'DOI',
         tags: 'Tags',
@@ -12,6 +15,8 @@ export default {
         settings: 'Settings',
         moderation: 'Moderation',
         notifications: 'Notifications',
+        submissions: 'Submissions',
+        moderators: 'Moderators',
     },
     index: {
         feature: {
@@ -31,6 +36,18 @@ export default {
                 postModeration: 'Post-moderation',
             },
         },
+    },
+    moderators: {
+        addNewMod: 'Add',
+        getStartedIntro: 'Get started by',
+        getStartedAction: 'adding a new moderator!',
+        deleteModeratorError: 'Error removing moderator.',
+        updateModeratorError: 'Error saving moderator',
+        addModeratorError: 'Error adding moderator',
+        name: 'Name',
+        permissions: 'Permissions',
+        admin: 'Admin',
+        moderator: 'Moderator',
     },
     providerSettings: {
         reviewsWorkflow: {
@@ -211,6 +228,14 @@ export default {
             never: 'Never',
             errorUpdating: 'Error updating notification settings.',
         },
+        moderatorListAdd: {
+            inviteText: 'invite by email',
+            userSearchError: 'Error searching users.',
+        },
+        moderatorList: {
+            editDisabledMessage: 'Can only edit one moderator at a time',
+            adminDisabledMessage: 'Must have one admin',
+        },
         preprintStatusBanner: {
             recentActivity: {
                 pending: 'submitted this {{documentType.singular}} on',
@@ -273,6 +298,11 @@ export default {
                 },
             },
             error: 'Error submitting decision.',
+        },
+        unregisteredContributorForm: {
+            fullNameLabel: 'Full name',
+            emailLabel: 'Email',
+            notifyMessage: 'We will notify the user that they have been added as a moderator.',
         },
     },
 };
