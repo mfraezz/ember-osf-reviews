@@ -11,6 +11,7 @@ export default {
         none: 'None',
         settings: 'Settings',
         moderation: 'Moderation',
+        notifications: 'Notifications',
     },
     index: {
         feature: {
@@ -198,6 +199,17 @@ export default {
                 rejectedOn: 'Rejected on {{timeDate}} by {{moderatorName}}',
                 rejected: 'Rejected {{timeDate}} by {{moderatorName}}',
             },
+        },
+        notificationList: {
+            heading: 'Configure reviews notification preferences',
+            helperText: 'To configure other notification preferences visit your',
+            userSettings: 'user settings',
+        },
+        notificationListRow: {
+            instant: 'Instant',
+            daily: 'Daily',
+            never: 'Never',
+            errorUpdating: 'Error updating notification settings.',
         },
         preprintStatusBanner: {
             recentActivity: {
