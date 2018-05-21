@@ -19,6 +19,7 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
     theme: service(),
     i18n: service(),
     currentUser: service(),
+    scroller: service(),
 
     disableAdminDeletion: false,
     editingModerator: false,
@@ -37,6 +38,7 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
             if (this.get('page') !== this.get('results.totalPages')) {
                 this.set('page', this.get('results.totalPages'));
             }
+            this.get('scroller').scrollVertical('.__moderator-list-row__a01f5', {});
         },
     },
 
@@ -72,7 +74,7 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
     loadModerators: task(function* () {
         const moderators = yield this.get('store').query('moderator', {
             page: {
-                size: 100,
+                size: 100, // will need to be updated if a provider has > 100 moderators
             },
             provider: this.get('theme.provider.id'),
         });
@@ -81,9 +83,14 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
     }),
 
     deleteModerator: task(function* (moderatorInstance) {
+        let removingSelf = moderatorInstance.id === this.get('currentUser.user.id');
         try {
             yield moderatorInstance.destroyRecord({ adapterOptions: { provider: this.get('theme.provider.id') } });
             moderatorInstance.unloadRecord(); // https://github.com/emberjs/data/issues/5014
+
+            if (removingSelf) {
+                return;
+            }
 
             const allModerators = this.get('store').peekAll('moderator');
 
@@ -98,13 +105,17 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
             }
 
             yield this.get('fetchAdmin').perform();
-            return true;
         } catch (e) {
             this.get('toast').error(this.get('i18n').t('moderators.deleteModeratorError'));
-            return false;
+            removingSelf = false; // removing failed, don't redirect
         } finally {
-            this.get('loadModerators').perform();
-            this.set('editingModerator', false);
+            if (removingSelf) {
+                yield this.get('store').findRecord('user', this.get('currentUser.user.id'));
+                this.transitionToRoute('/');
+            } else {
+                this.get('loadModerators').perform();
+                this.set('editingModerator', false);
+            }
         }
     }),
 
@@ -154,7 +165,11 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
                 this.get('results.moderators').pushObject(moderatorInstance);
             }
         } catch (e) {
-            this.get('toast').error(this.get('i18n').t('moderators.addModeratorError'));
+            if (e.errors[0].detail.includes('Specified user is already a moderator')) {
+                this.get('toast').error(this.get('i18n').t('moderators.addExistingModeratorError'));
+            } else {
+                this.get('toast').error(this.get('i18n').t('moderators.addModeratorError'));
+            }
         } finally {
             this.get('loadModerators').perform();
             this.setProperties({
@@ -169,6 +184,10 @@ export default Controller.extend(Analytics, moderatorsQueryParams.Mixin, {
         const provider = this.get('theme.provider');
         const admins = yield this.get('store').query('moderator', {
             provider: provider.id,
+            // temporary, should be refactored when https://openscience.atlassian.net/browse/EMB-227 is complete
+            page: {
+                size: 100, // will need to be updated if a provider has > 100 admin moderators
+            },
             filter: {
                 permission_group: 'admin',
             },
