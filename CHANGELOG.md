@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use `name` field for contributors on preprint-detail page
 - Prevent banner from loading on `preprint-detail` page if preprint is undefined
 
+## [0.6.1] - 2018-06-21
+### Added
+- `anonymizeIp: true` in GA config to anonymize sender IP.
+
+### Changed
+- Use 0.17.1 ember-osf
+
 ## [0.6.0] - 2018-05-29
 ### Added
 - Moderator management page
@@ -51,9 +58,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Tests for provider setup controller
 
 ### Changed
-- Update language 
+- Update language
   - Add `Submitted by` along with the `accepted by/rejected by` for the accepted/rejected records in the moderation list
-  - Capitalize first letter (e.g `submitted by` to `Submitted by`) 
+  - Capitalize first letter (e.g `submitted by` to `Submitted by`)
 - Upgraded ember-cli to 2.16.2
 
 ## [0.3.1] - 2018-03-01
@@ -96,7 +103,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use COS ember-base image and multi-stage build
   - Notify DevOps prior to merging into master to update Jenkins
 - Show moderator name (instead of creator) in the accepted/rejected records in the moderation list
-- Update style/layout for Reviews to be more mobile friendly 
+- Update style/layout for Reviews to be more mobile friendly
 
 ### Removed
 - Remove name link from action logs in the dashboard view
