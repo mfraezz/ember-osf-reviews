@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Use `name` field for contributors on preprint-detail page
 - Prevent banner from loading on `preprint-detail` page if preprint is undefined
 
+## Changed
+- Use Ember-CSS-Modules
+
 ## [0.6.1] - 2018-06-21
 ### Added
 - `anonymizeIp: true` in GA config to anonymize sender IP.
